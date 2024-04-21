@@ -1,5 +1,7 @@
 package sort;
 
+import sort.util.RandomData;
+
 /**
  * @description: 插入排序（将每个元素插入正确的位置）
  * @author: sakana
@@ -8,10 +10,10 @@ package sort;
  */
 
 public class ChaRu {
-    private static final int[] data = new int[]{5, 25, 27, 29, 45, 15, 21, 12, 7, 48, 9
-            , 24, 24, 35, 2, 42, 35, 25, 3, 18, 43, 24, 44, 45, 48};
+    private static int[] data = RandomData.getRandomData(100000, 100000);
 
     public static void main(String[] args) {
+        long s = System.currentTimeMillis();
         for (int i = 1; i < data.length; i++) {
             int num = data[i];
             int index = i - 1;
@@ -21,8 +23,7 @@ public class ChaRu {
             }
             data[index + 1] = num; //插入
         }
-        for (int num : data) {
-            System.out.print(num + " ");
-        }
+        long e = System.currentTimeMillis();
+        System.out.println(e - s);
     }
 }

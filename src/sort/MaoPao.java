@@ -1,5 +1,8 @@
 package sort;
 
+import sort.util.RandomData;
+import sort.util.VerifyUtil;
+
 /**
  * @description: 冒泡排序
  * @author: sakana
@@ -7,9 +10,10 @@ package sort;
  * @version: 1.0
  */
 public class MaoPao {
-    private static final int[] data = new int[]{5, 25, 27, 29, 45, 15, 21, 12, 7, 48, 9, 24, 24, 35, 2, 42, 35, 25, 3, 18, 43, 24, 44, 45, 48};
+    private static int[] data = RandomData.getRandomData(1000, 100000);
 
     public static void main(String[] args) {
+        long s = System.currentTimeMillis();
         for (int i = 0; i < data.length; i++) {
             for (int j = i + 1; j < data.length; j++) {
                 if (data[j] < data[i]) {
@@ -19,8 +23,8 @@ public class MaoPao {
                 }
             }
         }
-        for (int num : data) {
-            System.out.print(num + " ");
-        }
+        long e = System.currentTimeMillis();
+        System.out.println(e - s);
+        VerifyUtil.isSorted(data);
     }
 }
